@@ -193,7 +193,16 @@ const analysis = analyzeSettlement(aiSettlementContext);
 
   <StructuredSignoff />
 </div>
-        {!calc.supported ? (
+  {!calc.supported ? (
+  deal.dealType === "vs" ? (
+    <CustomSettlementView
+      settlement={settlement}
+      deal={deal}
+      expenses={expenses}
+      recoups={recoups}
+    />
+  ) : (
+    <UnsupportedDeal
           <UnsupportedDeal
             dealType={calc.dealType}
             deal={deal}
