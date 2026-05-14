@@ -152,6 +152,36 @@ const analysis = analyzeSettlement(aiSettlementContext);
   <StructuredSignoff />
 </div>
       <div className="space-y-6 mt-6">
+        {/* AI Settlement Layer */}
+<div className="mb-6">
+  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-[11px] font-medium ring-1 ring-brand-200/60 mb-3">
+    Applied AI Review
+  </div>
+
+  <h2
+    className="font-display text-[28px] font-medium text-ink-900 leading-tight"
+    style={{ letterSpacing: "-0.02em" }}
+  >
+    Settlement confidence analysis
+  </h2>
+
+  <p className="text-[13px] text-ink-500 mt-2 max-w-2xl leading-relaxed">
+    AI-assisted operational review designed to detect ambiguity,
+    conflicting signals, and workflow risk before settlement closes.
+  </p>
+</div>
+
+<div className="grid gap-6">
+  <SettlementConfidenceCard
+    score={analysis.confidenceScore}
+  />
+
+  <RiskDetectionPanel risks={analysis.risks} />
+
+  <SettlementTimeline />
+
+  <StructuredSignoff />
+</div>
         {!calc.supported ? (
           <UnsupportedDeal
             dealType={calc.dealType}
