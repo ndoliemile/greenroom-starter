@@ -3,16 +3,6 @@
 **From:** Ndoli Emile Arnauld
 **To:** Greenroom team
 **Date:** May 2026
-
-Here’s a polished memo you can adapt directly for submission.
-
----
-
-# Settlement Confidence — Reducing Operational Ambiguity During Venue Settlement
-
-**Ndoli Emile Arnauld**
-Applied AI PM Case Study — Greenroom
-
 ---
 
 ## Problem
