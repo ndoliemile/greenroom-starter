@@ -3,7 +3,7 @@ import RiskDetectionPanel from "@/components/RiskDetectionPanel";
 import SettlementTimeline from "@/components/SettlementTimeline";
 import StructuredSignoff from "@/components/StructuredSignoff";
 import { analyzeSettlement } from "@/lib/settlement-analysis";
-import { analyzeSettlement } from "@/lib/settlement-analysis";
+import CustomSettlementView from "@/components/CustomSettlementView";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
