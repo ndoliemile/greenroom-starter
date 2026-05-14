@@ -1,3 +1,8 @@
+import SettlementConfidenceCard from "@/components/SettlementConfidenceCard";
+import RiskDetectionPanel from "@/components/RiskDetectionPanel";
+import SettlementTimeline from "@/components/SettlementTimeline";
+import StructuredSignoff from "@/components/StructuredSignoff";
+import { analyzeSettlement } from "@/lib/settlement-analysis";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -50,6 +55,17 @@ export default async function SettlePage({
 
   const { show, artist, deal, ticketSales, expenses, settlement, recoups } =
     data;
+  const aiSettlementContext = {
+  status: settlement?.status,
+  signoffNote: settlement?.signoffText ?? settlement?.notes,
+  editedAfterApproval: !!settlement?.submittedAt && !!settlement?.finalizedAt,
+  hasAttachments: (expenses?.length ?? 0) > 0,
+  securityExpense: expenses
+    .filter((e) => e.label?.toLowerCase()?.includes("security"))
+    .reduce((sum, e) => sum + e.amount, 0),
+};
+
+const analysis = analyzeSettlement(aiSettlementContext);
 
   if (!deal) {
     return (
@@ -125,7 +141,16 @@ export default async function SettlePage({
       {settlement && (
         <LifecycleBar settlement={settlement} disputedRecoups={disputedRecoups.length} />
       )}
+      {/* AI Settlement Layer */}
+<div className="grid gap-6">
+  <SettlementConfidenceCard score={analysis.confidenceScore} />
 
+  <RiskDetectionPanel risks={analysis.risks} />
+
+  <SettlementTimeline />
+
+  <StructuredSignoff />
+</div>
       <div className="space-y-6 mt-6">
         {!calc.supported ? (
           <UnsupportedDeal
