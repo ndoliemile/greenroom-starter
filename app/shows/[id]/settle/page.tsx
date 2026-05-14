@@ -151,6 +151,19 @@ const analysis = analyzeSettlement(aiSettlementContext);
 
   <StructuredSignoff />
 </div>
+      {/* AI Settlement Review Layer */}
+
+<SettlementConfidenceCard
+  score={analysis.confidenceScore}
+/>
+
+<RiskDetectionPanel risks={analysis.risks} />
+
+<SettlementTimeline />
+
+<StructuredSignoff />
+
+<div className="space-y-6 mt-6">
       <div className="space-y-6 mt-6">
         {/* AI Settlement Layer */}
 <div className="mb-6">
