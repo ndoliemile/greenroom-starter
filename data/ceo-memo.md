@@ -42,7 +42,7 @@ rather than replacing accounting systems.
 
 Instead of trying to automate settlement, I focused on helping operators identify uncertainty before settlement closes.
 
----
+
 
 ## Proposed Solution: Settlement Confidence
 
@@ -73,7 +73,7 @@ The score is influenced by:
 
 This creates a fast operational signal during late-night settlement.
 
----
+
 
 ### 2. AI Discrepancy Detection
 
@@ -88,7 +88,7 @@ Examples:
 
 This helps operators quickly understand where ambiguity exists without manually reconstructing the entire workflow.
 
----
+
 
 ### 3. Settlement Timeline
 
@@ -104,7 +104,7 @@ Example:
 
 This improves audit visibility and helps explain how conflicting settlement states emerged.
 
----
+
 
 ### 4. Structured Sign-off Workflow
 
@@ -119,7 +119,7 @@ To reduce ambiguity, I introduced structured confirmation prompts before settlem
 
 This creates clearer accountability while preserving operational flexibility.
 
----
+
 
 ## AI Philosophy
 
@@ -139,7 +139,7 @@ I believe this distinction is important in trust-sensitive operational workflows
 
 The goal is not to automate settlement decisions. The goal is to reduce uncertainty before settlement closes.
 
----
+
 
 ## Design Principles
 
@@ -184,7 +184,7 @@ The analysis engine evaluates settlement conditions and surfaces operational ris
 
 I intentionally avoided introducing full LLM infrastructure because the prototype objective was workflow validation rather than model sophistication. Most ambiguity cases can already be detected through operational heuristics and structured workflow analysis.
 
----
+
 
 ## Trade-offs and Scope Decisions
 
@@ -228,7 +228,7 @@ I would validate this through:
 * post-show workflow reviews
 * usability testing with venue managers and bookers
 
----
+
 
 ## Future Iterations
 
