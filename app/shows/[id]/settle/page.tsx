@@ -3,6 +3,7 @@ import RiskDetectionPanel from "@/components/RiskDetectionPanel";
 import SettlementTimeline from "@/components/SettlementTimeline";
 import StructuredSignoff from "@/components/StructuredSignoff";
 import { analyzeSettlement } from "@/lib/settlement-analysis";
+import { analyzeSettlement } from "@/lib/settlement-analysis";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -93,7 +94,7 @@ const analysis = analyzeSettlement(aiSettlementContext);
   const disputedRecoups = recoups.filter((r) => r.status === "disputed");
   const isDisputed = settlement?.status === "disputed" || settlement?.status === "revised" || !!settlement?.disputedAt;
   const disputedRecoupValue = disputedRecoups.reduce((s, r) => s + r.amount, 0);
-
+   const analysis = analyzeSettlement(aiSettlementContext);
   return (
     <div className={`px-12 py-10 max-w-7xl ${isDisputed ? "bg-gradient-to-b from-rose-50/30 via-canvas to-canvas" : ""}`}>
       <BackLink showId={show.id} />
@@ -151,7 +152,6 @@ const analysis = analyzeSettlement(aiSettlementContext);
 
   <StructuredSignoff />
 </div>
-      {/* AI Settlement Review Layer */}
 
 <SettlementConfidenceCard
   score={analysis.confidenceScore}
@@ -162,8 +162,6 @@ const analysis = analyzeSettlement(aiSettlementContext);
 <SettlementTimeline />
 
 <StructuredSignoff />
-
-<div className="space-y-6 mt-6">
       <div className="space-y-6 mt-6">
         {/* AI Settlement Layer */}
 <div className="mb-6">
