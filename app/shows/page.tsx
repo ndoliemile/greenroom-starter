@@ -4,7 +4,7 @@ import SettlementTimeline from "@/components/SettlementTimeline";
 import StructuredSignoff from "@/components/StructuredSignoff";
 
 import { analyzeSettlement } from "@/lib/settlement-analysis";
-const { show, artist, deal, ticketSales, expenses, settlement, recoups } = data;
+
 
 import { getAllShows } from "@/lib/queries";
 import {
